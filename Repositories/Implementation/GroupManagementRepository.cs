@@ -1,6 +1,7 @@
 ﻿using ExpenseSharing.Api.Data;
 using ExpenseSharing.Api.Models;
 using ExpenseSharing.Api.Repositories.Abstract;
+using Microsoft.EntityFrameworkCore;
 
 namespace ExpenseSharing.Api.Repositories.Implementation
 {
@@ -23,6 +24,28 @@ namespace ExpenseSharing.Api.Repositories.Implementation
             _db.GroupMember.Add(groupMember);
             _db.SaveChanges();
 
+        }
+
+        public async Task<GroupDetailsDto> GetGroupDetails(int id)
+        {
+            var group=_db.Groups.FirstOrDefault(g => g.Id == id);
+            if (group == null)
+            {
+                return null;
+            }
+            var memberEmails = await _db.GroupMember
+                .Where(gm => gm.GroupId == id)
+                .Select(gm => gm.UserId)
+                .ToListAsync();
+            GroupDetailsDto dto = new GroupDetailsDto()
+            {
+               GroupName=group.GroupName,
+               Description=group.Description,
+               CreatedBy=group.CreatedByUserId,
+               CreatedDate=group.CreatedDate,
+               GroupMembers= memberEmails
+            };
+            return dto;
         }
     }
 }

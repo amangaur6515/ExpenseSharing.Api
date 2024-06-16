@@ -49,5 +49,14 @@ namespace ExpenseSharing.Api.Services.Implementation
             }
             
         }
+
+        public async Task<GroupDetailsDto> GetGroupDetailsDto(int id)
+        {
+           if(id==0 || id == null)
+            {
+                return null;
+            }
+           return await _groupManagementRepository.GetGroupDetails(id);
+        }
     }
 }

@@ -6,6 +6,6 @@ namespace ExpenseSharing.Api.Repositories.Abstract
     {
         public Task<bool> CreateGroup(Groups group);
         public Task CreateGroupMembers(GroupMember groupMember);
-        public Task GetGroupDetails(int id);
+        public Task<GroupDetailsDto> GetGroupDetails(int id);
     }
 }

@@ -25,7 +25,12 @@ namespace ExpenseSharing.Api.Controllers
         [HttpGet("GetGroupDetails/{id}")]
         public async Task<IActionResult> GetGroupDetails(int id)
         {
-
+            var groupDetails=await _groupManagementService.GetGroupDetailsDto(id);
+            if(groupDetails == null)
+            {
+                return BadRequest(new { Message = "Invalid ID" });
+            }
+            return Ok(groupDetails);
         }
     }
 }
