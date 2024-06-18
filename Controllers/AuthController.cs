@@ -36,7 +36,9 @@ namespace ExpenseSharing.Api.Controllers
             if (ModelState.IsValid)
             {
                 var res = await _authService.LoginUserAsync(userObj);
-                return Ok(res);
+                var response = new { Username = userObj.Email };
+                return Ok(response);
+          
 
             }
             ModelState.AddModelError("", "Invalid Credentials");

@@ -6,5 +6,6 @@ namespace ExpenseSharing.Api.Services.Abstract
     {
         public Task CreateGroup(CreateGroupDto createGroupDto);
         public Task<GroupDetailsDto> GetGroupDetailsDto(int id);
+        public Task<List<UserBelongedGroupsDto>> GetUserBelongedGroups(string userEmail);
     }
 }

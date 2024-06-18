@@ -56,17 +56,11 @@ namespace ExpenseSharing.Api
             builder.Services.AddScoped<IAuthService, AuthService>();
             builder.Services.AddScoped<IGroupManagementService, GroupManagementService>();
             builder.Services.AddScoped<IGroupManagementRepository, GroupManagementRepository>();
+            builder.Services.AddScoped<IExpenseManagementRepository, ExpenseManagementRepository>();
+            builder.Services.AddScoped<IExpenseManagementService, ExpenseManagementService>();
             builder.Services.AddScoped<UserSeeder>();
 
-            // Configure CORS
-            builder.Services.AddCors(options =>
-            {
-                options.AddPolicy("AllowOrigin",
-                    builder => builder
-                        .AllowAnyOrigin() // You can specify specific origins here instead of AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader());
-            });
+            
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -81,6 +75,7 @@ namespace ExpenseSharing.Api
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
             app.UseHttpsRedirection();
 

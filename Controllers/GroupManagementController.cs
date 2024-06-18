@@ -32,5 +32,16 @@ namespace ExpenseSharing.Api.Controllers
             }
             return Ok(groupDetails);
         }
+
+        [HttpGet("GetUserBelongedGroups/{userEmail}")]
+        public async Task<IActionResult> GetUserBelongedGroups(string userEmail)
+        {
+            var res =await _groupManagementService.GetUserBelongedGroups(userEmail);
+            if(res == null)
+            {
+                return BadRequest(new { Message = "User does not exist" });
+            }
+            return Ok(res); 
+        }
     }
 }

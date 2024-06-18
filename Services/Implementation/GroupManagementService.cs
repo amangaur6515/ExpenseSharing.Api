@@ -58,5 +58,14 @@ namespace ExpenseSharing.Api.Services.Implementation
             }
            return await _groupManagementRepository.GetGroupDetails(id);
         }
+
+        public Task<List<UserBelongedGroupsDto>> GetUserBelongedGroups(string userEmail)
+        {
+            if (userEmail == null)
+            {
+                return null;
+            }
+            return _groupManagementRepository.GetUserBelongedGroups(userEmail);
+        }
     }
 }

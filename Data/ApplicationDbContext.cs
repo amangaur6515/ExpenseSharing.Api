@@ -14,5 +14,7 @@ namespace ExpenseSharing.Api.Data
         //add models 
         public DbSet<Groups> Groups { get; set; }
         public DbSet<GroupMember> GroupMember { get; set; }
+        public DbSet<Expenses> Expenses { get; set; }
+        public DbSet<ExpenseSplits> ExpenseSplits { get; set;}
     }
 }
