@@ -50,6 +50,25 @@ namespace ExpenseSharing.Api.Repositories.Implementation
            
         }
 
+        public async Task<List<ExpenseDetailsDto>> GetExpenseDetails(int expenseId)
+        {
+            //list to store expense details objects
+            List<ExpenseDetailsDto> expenseDetails = new List<ExpenseDetailsDto>();
+            //find all the records with the matching expenseId, from expense splits table
+            var expenseSplits=_db.ExpenseSplits.Where(exp=>exp.ExpenseId == expenseId).ToList();
+
+            foreach(var  expense in expenseSplits)
+            {
+                ExpenseDetailsDto expenseDetailsDto = new ExpenseDetailsDto()
+                {
+                    UserEmail= expense.UserEmail,
+                    Amount = expense.Amount,
+                };
+                expenseDetails.Add(expenseDetailsDto);
+            }
+            return expenseDetails;
+        }
+
         public async Task<List<GroupExpensesDto>> GetGroupExpenses(int groupId)
         {
             //find  all group expenses  record by groupId

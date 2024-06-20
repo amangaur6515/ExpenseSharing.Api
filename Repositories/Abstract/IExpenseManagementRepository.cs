@@ -10,5 +10,7 @@ namespace ExpenseSharing.Api.Repositories.Abstract
 
         //returns all expenses withing the group
         public Task<List<GroupExpensesDto>> GetGroupExpenses(int groupId);
+
+        public Task<List<ExpenseDetailsDto>> GetExpenseDetails(int expenseId);
     }
 }

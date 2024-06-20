@@ -6,5 +6,6 @@ namespace ExpenseSharing.Api.Services.Abstract
     {
         public Task<bool> CreateExpense(CreateExpenseDto createExpenseDto);
         public Task<List<GroupExpensesDto>> GetGroupExpenses(int groupId);
+        public Task<List<ExpenseDetailsDto>> GetExpenseDetails(int expenseId);
     }
 }

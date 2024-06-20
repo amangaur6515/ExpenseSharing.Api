@@ -45,9 +45,17 @@ namespace ExpenseSharing.Api.Controllers
             }
             ModelState.AddModelError("", "Invalid");
             return BadRequest(ModelState);
+        }
 
-
-
+        [HttpGet("GetExpenseDetails/{expenseId}")]
+        public async Task<IActionResult> GetExpenseDetails(int expenseId)
+        {
+            var res=await _expenseManagementService.GetExpenseDetails(expenseId);
+            if(res != null)
+            {
+                return Ok(res);
+            }
+            return BadRequest(new { Message = "Invalid id" });
         }
     }
 }
