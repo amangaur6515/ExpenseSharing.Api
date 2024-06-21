@@ -57,5 +57,16 @@ namespace ExpenseSharing.Api.Controllers
             }
             return BadRequest(new { Message = "Invalid id" });
         }
+
+        [HttpGet("SettleExpense/{expenseId}")]
+        public async Task<IActionResult> SettleExpense(int expenseId)
+        {
+            var res=await _expenseManagementService.SettleExpense(expenseId);
+            if (res)
+            {
+                return Ok(new { Message = "Expense settled successfully" });
+            }
+            return BadRequest(new { Message = "Expense settled successfully" });
+        }
     }
 }

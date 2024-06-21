@@ -94,5 +94,27 @@ namespace ExpenseSharing.Api.Repositories.Implementation
             return groupExpensesDtos;
             
         }
+
+        public async Task<bool> SettleExpense(int expenseId)
+        {
+            //find the expense record from the expenses table
+            var expense=_db.Expenses.FirstOrDefault(exp => exp.Id == expenseId);
+            if (expense != null)
+            {
+                expense.IsSettled = true;
+                //foreach record in expense split table with matching expense id, make amount as 0
+                var expenseSplitsList= _db.ExpenseSplits.Where(exp=>exp.ExpenseId == expenseId).ToList();
+                //for each expensesplit obj in the list make amount as 0
+                foreach(var  ex in  expenseSplitsList)
+                {
+                    ex.Amount = 0;
+                    _db.SaveChanges();
+                }
+                _db.SaveChanges();
+                return true;
+
+            }
+            return false;
+        }
     }
 }

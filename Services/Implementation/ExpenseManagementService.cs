@@ -52,5 +52,16 @@ namespace ExpenseSharing.Api.Services.Implementation
             var res=await _expenseManagementRepository.GetGroupExpenses(groupId);
             return res; 
         }
+
+        public async Task<bool> SettleExpense(int expenseId)
+        {
+            if(expenseId==0 || expenseId == null)
+            {
+                return false;
+            }
+            var res = await _expenseManagementRepository.SettleExpense(expenseId);
+            return res;
+
+        }
     }
 }
