@@ -68,5 +68,14 @@ namespace ExpenseSharing.Api.Controllers
             }
             return BadRequest(new { Message = "Expense settled successfully" });
         }
+
+
+        //to be accessd by admin only
+        [HttpGet("GetAllExpenses")]
+        public async Task<IActionResult> GetAllExpenses()
+        {
+            var res = await _expenseManagementService.GetAllExpenses();
+            return Ok(res);
+        }
     }
 }

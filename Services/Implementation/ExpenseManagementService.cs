@@ -33,6 +33,11 @@ namespace ExpenseSharing.Api.Services.Implementation
             return res;
         }
 
+        public async Task<List<AllExpensesDto>> GetAllExpenses()
+        {
+            return await  _expenseManagementRepository.GetAllExpenses();
+        }
+
         public async Task<List<ExpenseDetailsDto>> GetExpenseDetails(int expenseId)
         {
             if(expenseId == 0 || expenseId==null)

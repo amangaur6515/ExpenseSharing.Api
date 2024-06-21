@@ -14,5 +14,7 @@ namespace ExpenseSharing.Api.Repositories.Abstract
         public Task<List<ExpenseDetailsDto>> GetExpenseDetails(int expenseId);
 
         public Task<bool> SettleExpense(int expenseId);
+
+        public Task<List<AllExpensesDto>> GetAllExpenses();
     }
 }

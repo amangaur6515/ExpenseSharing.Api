@@ -50,6 +50,35 @@ namespace ExpenseSharing.Api.Repositories.Implementation
            
         }
 
+        public async Task<List<AllExpensesDto>> GetAllExpenses()
+        {
+            var expensesList = _db.Expenses.ToList();
+
+            //list to be returned
+            List<AllExpensesDto> allExpensesList = new List<AllExpensesDto>();
+
+            //tranverse the expenses list which we got from the table
+            foreach(var expense in expensesList)
+            {
+                //find the group to which the expense belong
+                var group=_db.Groups.FirstOrDefault(grp => grp.Id == expense.GroupId);
+                //create the AllExpenseDto object and then insert into the ans list
+                AllExpensesDto dto = new AllExpensesDto()
+                {
+                    ExpenseId=expense.Id,
+                    GroupName=group.GroupName,
+                    ExpenseDescription=expense.Description,
+                    Amount=expense.Amount,
+                    PaidByUserEmail=expense.PaidByUserEmail,
+                    CreatedDate=expense.CreatedAt,
+                    IsSettled=expense.IsSettled,
+                };
+                allExpensesList.Add(dto);
+                
+            }
+            return allExpensesList;
+        }
+
         public async Task<List<ExpenseDetailsDto>> GetExpenseDetails(int expenseId)
         {
             //list to store expense details objects
