@@ -67,5 +67,7 @@ namespace ExpenseSharing.Api.Services.Implementation
             }
             return _groupManagementRepository.GetUserBelongedGroups(userEmail);
         }
+
+
     }
 }

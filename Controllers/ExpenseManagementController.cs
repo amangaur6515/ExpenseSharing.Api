@@ -25,7 +25,7 @@ namespace ExpenseSharing.Api.Controllers
                 {
                     return BadRequest(new { Message = "Invalid" });
                 }
-                return Ok(new { Message = "Expense created" });
+                return Ok(createExpenseDto);
             }
             ModelState.AddModelError("", "Invalid");
             return BadRequest(ModelState);
@@ -35,16 +35,14 @@ namespace ExpenseSharing.Api.Controllers
         [HttpGet("GetGroupExpenses/{groupId}")]
         public async Task<IActionResult> GetGroupExpenses(int groupId)
         {
-            if(ModelState.IsValid)
-            {
+            
                 var res =await _expenseManagementService.GetGroupExpenses(groupId);
                 if (res != null)
                 {
                     return Ok(res);
                 }
-            }
-            ModelState.AddModelError("", "Invalid");
-            return BadRequest(ModelState);
+                return BadRequest(new {Message="Invalid Id"});
+            
         }
 
         [HttpGet("GetExpenseDetails/{expenseId}")]

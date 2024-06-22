@@ -58,6 +58,7 @@ namespace ExpenseSharing.Api
             builder.Services.AddScoped<IGroupManagementRepository, GroupManagementRepository>();
             builder.Services.AddScoped<IExpenseManagementRepository, ExpenseManagementRepository>();
             builder.Services.AddScoped<IExpenseManagementService, ExpenseManagementService>();
+            builder.Services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
             builder.Services.AddScoped<UserSeeder>();
 
             

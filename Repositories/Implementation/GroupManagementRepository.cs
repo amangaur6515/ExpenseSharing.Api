@@ -7,8 +7,8 @@ namespace ExpenseSharing.Api.Repositories.Implementation
 {
     public class GroupManagementRepository : IGroupManagementRepository
     {
-        private readonly ApplicationDbContext _db;
-        public GroupManagementRepository(ApplicationDbContext db)
+        private readonly IApplicationDbContext _db;
+        public GroupManagementRepository(IApplicationDbContext db)
         {
             _db=db;
         }
