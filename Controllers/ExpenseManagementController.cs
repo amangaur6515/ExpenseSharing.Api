@@ -1,5 +1,6 @@
 ﻿using ExpenseSharing.Api.Models;
 using ExpenseSharing.Api.Services.Abstract;
+using ExpenseSharing.Api.Services.Implementation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -35,6 +36,7 @@ namespace ExpenseSharing.Api.Controllers
         [HttpGet("GetGroupExpenses/{groupId}")]
         public async Task<IActionResult> GetGroupExpenses(int groupId)
         {
+           
             
                 var res =await _expenseManagementService.GetGroupExpenses(groupId);
                 if (res != null)

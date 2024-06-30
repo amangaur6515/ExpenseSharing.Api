@@ -20,15 +20,7 @@ namespace ExpenseSharing.Api.Services.Implementation
                 return false;
             }
 
-            //check if paid by person and any split among person same
-            foreach(var user in createExpenseDto.SplitAmong)
-            {
-                if(user==createExpenseDto.PaidBy)
-                {
-                    //paid by person can't be included in split among
-                    return false;
-                }
-            }
+           
             bool res=await _expenseManagementRepository.CreateExpense(createExpenseDto);
             return res;
         }

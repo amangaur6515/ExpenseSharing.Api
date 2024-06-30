@@ -19,10 +19,8 @@ namespace ExpenseSharing.Api
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
-
-
-
+           
+            
             //service for db context class
             builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
                 builder.Configuration.GetConnectionString("DefaultConnection")
