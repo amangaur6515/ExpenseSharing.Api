@@ -24,16 +24,29 @@ This Expense Sharing App is built using **ASP.NET Core 6.0 Web API** for the bac
 ## Screenshots
 
 ### Login Page
-![Login Page](assets/login-page.png)
+<img width="956" alt="Screenshot 2024-09-01 204151" src="https://github.com/user-attachments/assets/72c5d1d2-44f6-49ae-af2a-01e59c761d61">
+
+ 
 
 ### Home Page
-![Home Page](assets/home-page.png)
+ 
+<img width="955" alt="Screenshot 2024-09-01 204316" src="https://github.com/user-attachments/assets/3e9656bf-05cb-4d7f-a923-bdc657decf0f">
 
 ### Group Creation
-![Group Creation](assets/group-creation.png)
+ 
+<img width="956" alt="Screenshot 2024-09-01 204434" src="https://github.com/user-attachments/assets/0a5ddff1-299a-4fcb-85ec-cde5aa29a242">
 
 ### Expenses Page
-![Expenses Page](assets/expenses-page.png)
+ 
+<img width="956" alt="Screenshot 2024-09-01 204546" src="https://github.com/user-attachments/assets/1ab500a4-cf21-48e2-a83b-d296d1c873b7">
+
+### Expense Detail Page
+
+<img width="957" alt="Screenshot 2024-09-01 204701" src="https://github.com/user-attachments/assets/9a15a54b-62ec-4ba5-82cb-2e8c39011d10">
+
+### Create Expense Page
+
+<img width="956" alt="Screenshot 2024-09-01 204957" src="https://github.com/user-attachments/assets/e65a313e-5df3-4c9e-a72b-5eca5e0219ea">
 
 ## Getting Started
 
