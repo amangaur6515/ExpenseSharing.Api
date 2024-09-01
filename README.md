@@ -55,14 +55,14 @@ This Expense Sharing App is built using **ASP.NET Core 6.0 Web API** for the bac
 - [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
 - [Node.js](https://nodejs.org/)
 - [Angular CLI](https://angular.io/cli)
-- [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) or another compatible database system
+- [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)  
 
 ### Installation
 
 1. **Clone the Backend Repository:**
 
     ```bash
-    git clone https://github.com/yourusername/expense-sharing-backend.git
+    git clone   https://github.com/amangaur6515/ExpenseSharing.Api.git
     cd expense-sharing-backend
     ```
 
@@ -92,7 +92,7 @@ This Expense Sharing App is built using **ASP.NET Core 6.0 Web API** for the bac
     Open a new terminal window/tab and run:
 
     ```bash
-    git clone https://github.com/yourusername/expense-sharing-frontend.git
+    git clone  https://github.com/amangaur6515/expense-sharing-app.Ui.git
     cd expense-sharing-frontend
     ```
 
@@ -113,7 +113,7 @@ This Expense Sharing App is built using **ASP.NET Core 6.0 Web API** for the bac
 5. **Access the Application:**
 
     - Open your browser and navigate to `http://localhost:4200` to access the frontend.
-    - The backend API will be running at `http://localhost:5000` (or the port you specified).
+    - The backend API will be running at `http://localhost:7035` (or the port you specified).
 
 ## Usage
 
